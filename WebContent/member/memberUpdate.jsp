@@ -34,6 +34,15 @@ h2 {
 	margin-left: 17%;
 	
 }
+
+#pw_sp{
+	font-size: 6px;
+	color:rgba(255,0,0,0.7);
+}
+#re_sp{
+	font-size: 6px;
+	color:rgba(255,0,0,0.7);
+}
 </style>
 </head>
 <body>
@@ -52,14 +61,14 @@ h2 {
 			<div class="form-group">
 				<label class="control-label col-sm-2" for="pw">PW</label>
 				<div class="col-sm-10">
-					<input type="password" class="form-control" id="pw" name="pw">
+					<input type="password" class="form-control" id="pw" name="pw"><span id="pw_sp"></span>
 				</div>
 			</div>
 			
 			<div class="form-group">
 				<label class="control-label col-sm-2" for="pw">PW-RE</label>
 				<div class="col-sm-10">
-					<input type="password" class="form-control" id="pw_re" name="pw_re">
+					<input type="password" class="form-control" id="pw_re" name="pw_re"><span id="re_sp"></span>
 				</div>
 			</div>
 
@@ -93,12 +102,26 @@ h2 {
 			</div>
 		<button type="submit" class="btn btn-warning" id="btn_right">완료</button>
 		</form>
+</div>
+<script type="text/javascript">
 
-		<!--**********************버튼그룹 -->
+	$("#pw").blur(function() {
+		if (this.value.length<10) {
+			$("#pw_sp").text("비밀번호는 10자 이상 입력해야 합니다.");
+		}else{
+			$("#pw_sp").empty();
+		}
+	});
+	
+	$("#pw_re").blur(function check() {
+		if(this.value!=$("#pw").val()){
+			$("#re_sp").text("입력한 비밀번호가 다릅니다.");
+		}else{
+			$("#re_sp").empty();
+		}
+	});
+	$("#pw").blur(check());
 
-
-		
-
-	</div>
+</script>
 </body>
 </html>

@@ -10,6 +10,20 @@
 	
 	String id = request.getParameter("id");
 	String pw = request.getParameter("pw");
+	String check = request.getParameter("remember");
+	Cookie cookie;	
+	if(check!=null){
+	cookie = new Cookie("id",id);
+	cookie.setPath(request.getContextPath());
+	response.addCookie(cookie);
+	}else{
+		cookie = new Cookie("id","");
+		cookie.setPath(request.getContextPath());
+		cookie.setMaxAge(0);
+		response.addCookie(cookie);
+	}
+	
+	
 	
 	MemberDAO dao = new MemberDAO();
 	

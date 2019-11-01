@@ -36,10 +36,13 @@ public class MemberDAO_Test {
 //		assertNotNull(dto);
 
 		/**업데이트*/
-		dto = dao.memberLogin(con, "coo", "coo");
-		dto.setPw("coo2");
-		int result = dao.memberUpdate(con, dto);
+//		dto = dao.memberLogin(con, "coo", "coo");
+//		dto.setPw("coo2");
+//		int result = dao.memberUpdate(con, dto);
+		/** 삭제 */
 		
+		dto = dao.memberLogin(con, "a", "s");
+		int result = dao.memberDelete(con, "a");
 		assertEquals(1, result);
 	}
 

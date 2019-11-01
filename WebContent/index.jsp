@@ -21,7 +21,7 @@
 	}
 	
 	#id_div {
-		padding-top:20%;
+		padding-top:10%;
 		width: 100%;
 		height: auto;
 		text-align: center;
@@ -60,6 +60,18 @@
 <h1>로그인 실패</h1>
 <%} %>
 </div>
+<div class="container">
+	<%Cookie[] cookies  = request.getCookies(); 
+		for(int i=0; i < cookies.length; i++) {
+		%>
+		<h1>NAME	: <%=cookies[i].getName() %></h1>
+		<h1>VALUE	: <%=cookies[i].getValue() %></h1>
+			
+			
+		<%}
+	
+	%>
 
+</div>
 </body>
 </html>

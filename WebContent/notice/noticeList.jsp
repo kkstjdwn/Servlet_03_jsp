@@ -1,3 +1,4 @@
+<%@page import="javax.servlet.http.Cookie"%>
 <%@page import="com.coo.notice.NoticeDTO"%>
 <%@page import="com.coo.notice.NoticeDAO"%>
 <%@page import="java.util.ArrayList"%>
@@ -13,6 +14,26 @@
 	ArrayList<NoticeDTO> ar = dao.selectList(con);
 	
 	con.close();
+	
+	//쿠키
+	//쿠키 생성시 생성자에 키와 밸류 입력
+	Cookie cookie = new Cookie("name","coo");
+	
+	//쿠키가 적용되는 path 설정 : 보통 context path 적용
+	cookie.setPath(request.getContextPath());
+	
+	//쿠키의 유효시간 --> 설정을 하지 않으면 웹브라우저가 종료 될 때 소멸
+	//단위 초단위
+	cookie.setMaxAge(60*60);
+	
+	//쿠키를 클라이언트로 전송
+	response.addCookie(cookie);
+	
+	
+	
+	
+	
+	
 %>
 <!DOCTYPE html>
 <html>

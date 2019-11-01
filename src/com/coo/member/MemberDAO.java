@@ -83,5 +83,17 @@ public class MemberDAO {
 		
 		return result;
 	}
+	
+	public int memberDelete(Connection con, String id) throws Exception{
+		
+		this.sql = "delete member where id = ?";
+		st = con.prepareStatement(sql);
+		st.setString(1, id);
+		this.result = st.executeUpdate();
+		
+		st.close();
+		
+		return result;
+	}
 
 }

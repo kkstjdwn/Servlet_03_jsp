@@ -3,11 +3,23 @@
 <%	request.setCharacterEncoding("UTF-8");
 	response.setCharacterEncoding("UTF-8");
 	String id = "";
-	if(request.getParameter("id")!=null){
-		id = request.getParameter("id");
+	
+	Cookie[] cookies = request.getCookies();
+	
+	for(int i=0; i<cookies.length;i++){
+		if(cookies[i].getName().equals("id")){
+			
+			id = cookies[i].getValue();	
+			break;
+		}
 	}
 
-
+// 	for(Cookie cookie : cookies) {
+// 		if(cookie.getName().equals("id")){
+// 			id = cookie.getValue();
+// 			break;
+// 		}
+// 	}
 
 %>    
     
@@ -15,7 +27,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Bootstrap Example</title>
+<title>로그인 폼</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -36,12 +48,18 @@
   <form action="memberLoginResult.jsp" method="post">
     <div class="form-group">
       <label for="email">ID:</label>
-      <input type="text" class="form-control" id="id" placeholder="Enter ID" name="id" value="<%=id %>">
+      <input type="text" class="form-control" id="id" placeholder="Enter ID" name="id" value="<%=id%>">
     </div>
     <div class="form-group">
       <label for="pwd">PW:</label>
       <input type="password" class="form-control" id="pw" placeholder="Enter PW" name="pw">
     </div>
+    <div class="form-group">        
+        <div class="checkbox">
+          <label><input type="checkbox" name="remember" value="check" checked="checked"> Remember me</label>
+        </div>
+    </div>
+    
     <button type="submit" class="btn btn-default">LOGIN</button>
     
   </form>

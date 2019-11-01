@@ -13,8 +13,9 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 <style type="text/css">
-#btn_right {
+.btn_right {
 	float: right;
+	margin-left: 5px;
 }
 
 #contents {
@@ -86,15 +87,15 @@ h2 {
 						readonly="readonly" value="<%=dto.getLev() %>">
 				</div>
 			</div>
-		<button type="submit" class="btn btn-warning" id="btn_right">수정</button>
+		<!--**********************버튼그룹 -->
+		<button type="submit" class="btn btn-warning btn_right">수정</button>
+		<a href="memberDelete.jsp" class="btn btn-danger btn_right" id="btn_del">탈퇴</a>
 		</form>
 
-		<!--**********************버튼그룹 -->
 
 
 		
 
 	</div>
-
 </body>
 </html>
