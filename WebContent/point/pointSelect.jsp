@@ -14,12 +14,12 @@
 
 	PointDAO dao = new PointDAO();
 
-	PointDTO dto = dao.selectOne(con, num);
+	PointDTO pointdto = dao.selectOne(con, num);
 
-	if (dto == null) {
+	if (pointdto == null) {
 		response.sendRedirect("pointList.jsp");
 	} else {
-		request.setAttribute("PointDTO", dto);
+		request.setAttribute("PointDTO", pointdto);
 // 		dto.setName(request.getParameter("name"));
 // 		dto.setKor(Integer.parseInt(request.getParameter("kor")));
 // 		dto.setEng(Integer.parseInt(request.getParameter("eng")));

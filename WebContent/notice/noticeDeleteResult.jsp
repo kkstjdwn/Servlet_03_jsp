@@ -21,9 +21,10 @@ if(num>0){
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>delete r-page</title>
 </head>
 <body>
+<h1>D-R-page</h1>
 
 </body>
 </html>

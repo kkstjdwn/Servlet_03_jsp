@@ -54,7 +54,8 @@
 <title>성적 목록</title>
 </head>
 <body>
-	<div class="container">
+<%@include file="../layout/nav.jsp" %>
+<div class="container">
 		<table class="table">
 			<thead>
 				<tr><th>번호</th><th>이름</th><th>국어</th><th>영어</th><th>수학</th><th>합계</th><th>평균</th></tr>
@@ -63,10 +64,10 @@
 				<%
 					for(int i = 0; i < ar.size(); i++){
 						
-						PointDTO dto = ar.get(i);
+						PointDTO pointdto = ar.get(i);
 				%>		
 <!-- ********************************************아직 포문 -->
-				<tr><th><%=dto.getNum() %></th><th><a href="pointSelect.jsp?num=<%= dto.getNum()%>"> <%= dto.getName()%> </a></th><th><%=dto.getKor() %></th><th><%=dto.getEng() %></th><th><%=dto.getMath() %></th><th><%=dto.getSum() %></th><th><%=dto.getAvg() %></th></tr>
+				<tr><th><%=pointdto.getNum() %></th><th><a href="pointSelect.jsp?num=<%= pointdto.getNum()%>"> <%= pointdto.getName()%> </a></th><th><%=pointdto.getKor() %></th><th><%=pointdto.getEng() %></th><th><%=pointdto.getMath() %></th><th><%=pointdto.getSum() %></th><th><%=pointdto.getAvg() %></th></tr>
 				
 				
 				<%	}

@@ -7,19 +7,19 @@
 <%
 	request.setCharacterEncoding("UTF-8");
 	response.setCharacterEncoding("UTF-8");
-	PointDTO dto = new PointDTO();
-	dto.setName(request.getParameter("name"));
-	dto.setKor(Integer.parseInt(request.getParameter("kor")));
-	dto.setEng(Integer.parseInt(request.getParameter("eng")));
-	dto.setMath(Integer.parseInt(request.getParameter("math")));
-	dto.setSum(dto.getKor()+dto.getEng()+dto.getMath());
-	dto.setAvg(dto.getSum()/3.0);
+	PointDTO pointdto = new PointDTO();
+	pointdto.setName(request.getParameter("name"));
+	pointdto.setKor(Integer.parseInt(request.getParameter("kor")));
+	pointdto.setEng(Integer.parseInt(request.getParameter("eng")));
+	pointdto.setMath(Integer.parseInt(request.getParameter("math")));
+	pointdto.setSum(pointdto.getKor()+pointdto.getEng()+pointdto.getMath());
+	pointdto.setAvg(pointdto.getSum()/3.0);
 	
 	PointDAO dao = new PointDAO();
 	
 	Connection con = DBConnector.getConnection();
 	
-	int result = dao.insert(con, dto);
+	int result = dao.insert(con, pointdto);
 	
 	
 	con.close();

@@ -14,10 +14,10 @@ response.setCharacterEncoding("UTF-8");
 	
 	Connection con = DBConnector.getConnection();
 	NoticeDAO dao = new NoticeDAO();
-	NoticeDTO dto =dao.selectOne(con, num);
-	dto.setContents(contents);
-	dto.setTitle(title);
-	num = dao.update(con, dto);
+	NoticeDTO noticedto =dao.selectOne(con, num);
+	noticedto.setContents(contents);
+	noticedto.setTitle(title);
+	num = dao.update(con, noticedto);
 	
 	String msg = "수정 실패";
 	String path = "noticeList.jsp";
@@ -40,6 +40,6 @@ response.setCharacterEncoding("UTF-8");
 <title>UPD-RES page</title>
 </head>	
 <body>
-
+<h1>UPD-RES page</h1>
 </body>
 </html>

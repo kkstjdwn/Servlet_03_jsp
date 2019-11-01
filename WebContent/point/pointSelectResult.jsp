@@ -2,7 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-	PointDTO dto = (PointDTO)request.getAttribute("PointDTO"); 
+	PointDTO pointdto = (PointDTO)request.getAttribute("PointDTO"); 
 	
 // 	RequestDispatcher view = request.getRequestDispatcher("../common/common_result.jsp");
 // 	view.forward(request, response);
@@ -41,6 +41,7 @@
   </style>
 </head>
 <body>
+<%@include file="../layout/nav.jsp" %>
 	<div class="container">
 		<table class="table">
 			<thead>
@@ -56,13 +57,13 @@
 			</thead>
 			<tbody>
 				<tr>
-					<th><%=dto.getNum()%></th>
-					<th><%=dto.getName()%></th>
-					<th><%=dto.getKor()%></th>
-					<th><%=dto.getEng()%></th>
-					<th><%=dto.getMath()%></th>
-					<th><%=dto.getSum()%></th>
-					<th><%=dto.getAvg()%></th>
+					<th><%=pointdto.getNum()%></th>
+					<th><%=pointdto.getName()%></th>
+					<th><%=pointdto.getKor()%></th>
+					<th><%=pointdto.getEng()%></th>
+					<th><%=pointdto.getMath()%></th>
+					<th><%=pointdto.getSum()%></th>
+					<th><%=pointdto.getAvg()%></th>
 				</tr>
 
 
@@ -76,11 +77,11 @@
 		<button class="btn btn-danger" id="del">삭제</button>
 	</div>
 <script type="text/javascript">
-	var num = <%=dto.getNum()%>*1;
-	var name = "<%=dto.getName()%>";
-	var kor = <%=dto.getKor()%>;
-	var eng = <%=dto.getEng()%>;
-	var math = <%=dto.getMath()%>;
+	var num = <%=pointdto.getNum()%>*1;
+	var name = "<%=pointdto.getName()%>";
+	var kor = <%=pointdto.getKor()%>;
+	var eng = <%=pointdto.getEng()%>;
+	var math = <%=pointdto.getMath()%>;
 	$("#del").click(function() {
 // 		if (confirm("삭제하시겠습니까?")) {
 // 			location.href="pointDeleteResult.jsp?num="+num;

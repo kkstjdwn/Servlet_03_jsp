@@ -51,7 +51,7 @@ public class NoticeDAO {
 		
 	}
 	
-	public int insert(Connection con, NoticeDTO dto) throws Exception{
+	public int noticeWrite(Connection con, NoticeDTO dto) throws Exception{
 		
 		sql = "insert into notice values(board_seq.nextval, ?, ?, ?, sysdate,0)";
 		this.st = con.prepareStatement(sql);

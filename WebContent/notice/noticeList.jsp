@@ -44,9 +44,10 @@
 </head>
 </head>
 <body>
+<%@include file="../layout/nav.jsp" %>
 
 	<div class="container">
-		<h2>NOTICE</h2>
+		<h2>NOTICE LIST</h2>
 		<table class="table table-hover">
 			<thead>
 				<tr>
@@ -62,9 +63,9 @@
 					for (int i = 0; i < ar.size(); i++) {
 						
 						
-						NoticeDTO dto = ar.get(i); %>
+						NoticeDTO noticedto = ar.get(i); %>
 				<tr>
-					<th><%= dto.getNum()%></th><th><a href="noticeSelect.jsp?num=<%=dto.getNum() %>"><%=dto.getTitle() %></a></th><th><%=dto.getWriter() %></th><th><%=dto.getReg_date() %></th><th><%=dto.getHit() %></th>
+					<th><%= noticedto.getNum()%></th><th><a href="noticeSelect.jsp?num=<%=noticedto.getNum() %>"><%=noticedto.getTitle() %></a></th><th><%=noticedto.getWriter() %></th><th><%=noticedto.getReg_date() %></th><th><%=noticedto.getHit() %></th>
 				</tr>
 
 					<% }
@@ -73,8 +74,9 @@
 			
 		</table>
 		<!--**********************버튼그룹 -->
-		
+			<%if(dto!=null && dto.getLev()==0) {%>
 			<button type="button" class="btn btn-info" id="btn_right">글쓰기</button>
+			<%} %>
 			
 		
 	</div>

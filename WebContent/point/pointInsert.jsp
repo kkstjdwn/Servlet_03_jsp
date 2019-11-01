@@ -15,6 +15,7 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
 <body>
+<%@include file="../layout/nav.jsp" %>
 	<div class="container">
 		<h2>Insert page</h2>
 		<form action="pointInsertResult.jsp" method="post">

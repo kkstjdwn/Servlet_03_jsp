@@ -1,6 +1,10 @@
 <%@page import="com.coo.notice.NoticeDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%
+		
+
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,9 +42,18 @@ h2 {
 </style>
 </head>
 <body>
-
+<%@ include file="../layout/nav.jsp" %>
+	<% if(dto == null || dto.getLev() !=0) { 
+		String msg = "꺼져";
+		String path = "../index.jsp";
+		request.setAttribute("msg", msg);
+		request.setAttribute("path", path);
+		RequestDispatcher view = request.getRequestDispatcher("../common/common_result.jsp");
+		view.forward(request, response);
+	}
+	%>
 	<div class="container">
-		<h2>NOTICE</h2>
+		<h2>WRITE PAGE</h2>
 		<form class="form-horizontal" action="noticeWriteResult.jsp" method="post" onsubmit=true>
 			<div class="form-group">
 				<label class="control-label col-sm-2" for="title">TITLE</label>
@@ -51,7 +64,8 @@ h2 {
 			<div class="form-group">
 				<label class="control-label col-sm-2" for="title">WRITER</label>
 				<div class="col-sm-10">
-					<input type="text" class="form-control" id="writer" name="writer">
+					<input type="text" class="form-control" id="writer" name="writer" value="<%=dto.getId()%>"
+					readonly="readonly">
 				</div>
 			</div>
 			<div class="form-group">
@@ -71,13 +85,8 @@ h2 {
 		$("#btn_right").click(function() {
 			if ($("#title").prop("value")==""||$("#writer").prop("value")==""||$("#contents").prop("value")=="") {
 				alert("빈칸없이 작성해 주세요");
-				return false;
-		}else{
-			
-			$(".form-horizontal").prop("action","noticeWriteResult.jsp");
-			}
-		}
-		);
+				return false;}
+		});
 	
 	</script>
 	

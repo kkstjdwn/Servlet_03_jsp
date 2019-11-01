@@ -12,15 +12,15 @@
 	String contents = request.getParameter("contents");
 	String writer = request.getParameter("writer");
 	
-	NoticeDTO dto = new NoticeDTO();
+	NoticeDTO noticedto = new NoticeDTO();
 	
-	dto.setContents(contents);
-	dto.setTitle(title);
-	dto.setWriter(writer);
+	noticedto.setContents(contents);
+	noticedto.setTitle(title);
+	noticedto.setWriter(writer);
 	
 	NoticeDAO dao = new NoticeDAO();
 	Connection con = DBConnector.getConnection();
-	int num = dao.insert(con, dto);
+	int num = dao.noticeWrite(con, noticedto);
 	
 	
 		String msg = "작성 실패";
@@ -42,6 +42,7 @@
 <head>
 </head>
 <body>
+<h1>D-R-page</h1>
 
 </body>
 </html>

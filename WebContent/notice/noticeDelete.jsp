@@ -25,6 +25,7 @@ response.setCharacterEncoding("UTF-8");
 <head>
 <meta charset="UTF-8">
 <title>삭제</title>
+<h1>D-page</h1>
 </head>
 <body>
 
