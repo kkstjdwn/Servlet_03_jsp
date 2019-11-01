@@ -65,5 +65,23 @@ public class MemberDAO {
 		
 		return dto;
 	}
+	
+	public int memberUpdate(Connection con,MemberDTO dto) throws Exception{
+		
+		this.sql = "update member  set pw = ?, name = ?, email=?, phone =?, lev = ? where id = ?";
+		st = con.prepareStatement(sql);
+		st.setString(1, dto.getPw());
+		st.setString(2, dto.getName());
+		st.setString(3, dto.getEmail());
+		st.setString(4, dto.getPhone());
+		st.setInt(5, dto.getLev());
+		st.setString(6, dto.getId());
+		
+		this.result = st.executeUpdate();
+		
+		st.close();
+		
+		return result;
+	}
 
 }

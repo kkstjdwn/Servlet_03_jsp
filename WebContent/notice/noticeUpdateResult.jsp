@@ -31,7 +31,6 @@ response.setCharacterEncoding("UTF-8");
 	request.setAttribute("path", path);
 	RequestDispatcher view = request.getRequestDispatcher("../common/common_result.jsp");
 	view.forward(request, response);
-
 %>
 <!DOCTYPE html>
 <html>
